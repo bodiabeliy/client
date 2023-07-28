@@ -1,0 +1,37 @@
+@import "reset";
+@import "variables/global.scss";
+@import "themes/light.scss";
+
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto&family=Roboto+Slab:wght@100&family=Ubuntu:wght@700&display=swap');
+.app {
+    font-family: var(--font-family);
+    // font-size: var(--font-size-m);
+    // line-height: var(--font-line-m);
+    // color:var(--primary-color);
+    display: flex;
+    width: 100%;
+
+}
+
+
+//
+.ant-tabs.ant-tabs-top.css-dev-only-do-not-override-txh9fw {
+    align-items: center !important;
+}
+.ant-select-selector{
+    background-color: rgba(237, 242, 255, 0.7) !important;
+    font-family: var(--font-family) !important;
+    color:#6D6BE5 !important;
+    width:74px !important;
+    border: none !important;
+    & span {
+        font-weight: 600 !important;
+
+    }
+
+}
+.ant-select-dropdown {
+    width: 120px !important;
+}
+

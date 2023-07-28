@@ -1,0 +1,41 @@
+.pageDescriptionWrapper {
+    color: white;
+    text-align: left;
+    margin-left: 65px;
+}
+.titleContent {
+    font-family: var(--font-family);
+    font-weight: var(--font-bold);
+    font-size: 28px;
+    line-height: normal;
+    letter-spacing: 0.72px;
+}
+.paragraphContent {
+    font-family: var(--font-family);
+    font-weight: var(--font-regular);
+
+    padding-top: 24px;
+    max-width: 436px;
+    font-size: 18px;
+    font-weight: 400;
+}
+.benefits {
+    font-family: var(--font-family);
+    font-weight: var(--font-regular);
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 170px;
+    max-width: 472px;
+    margin-top: 40px;
+
+}
+.benefit {
+    display: flex;
+    padding: 12px 0;
+    & svg {
+        margin-right: 10px;
+    }    
+}

@@ -1,0 +1,14 @@
+.sideBar {
+    background:linear-gradient(180deg, #8892FF 0%, #6D6BE5 18.75%);
+    width: 37%;
+    height: var(--page-height);
+    display: flex;
+    flex-shrink: 0;
+}
+.sideBarContent {
+    background-image: url("../../../../shared/assets/Work.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    width: 100%;
+}
