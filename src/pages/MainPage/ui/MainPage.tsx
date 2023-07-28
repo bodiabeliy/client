@@ -12,7 +12,7 @@ const MainPage = () => {
         <div className={classNames(cls.mainWrapper)}>  
             <div className={classNames(cls.mainContent)}>
                 <div className={cls.textDescription}>
-                    <PageDescription />
+                    <PageDescription pageName={"main"} />
                  </div>
                 <div className={cls.form}>
                     <LoginTabs />

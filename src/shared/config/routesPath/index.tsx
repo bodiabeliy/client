@@ -1,10 +1,11 @@
 import { AboutPage } from "pages/ConfirmationPage"
+import ConfirmationPage from "pages/ConfirmationPage/ui/ConfirmationPage"
 import { MainPage } from "pages/MainPage"
+import { RegistrationPage } from "pages/RegistrationPage"
 import { RouteProps } from "react-router-dom"
 
 export enum AppRoutes {
     MAIN="main",
-    ABOUT ="about",
     REGISTRATION="registration",
     CONFIRMATION ="confirmation",  
     ACTIVATION="activation",
@@ -12,7 +13,6 @@ export enum AppRoutes {
 
 export const routesPath: Record<AppRoutes, string> ={
     [AppRoutes.MAIN]:"/",
-    [AppRoutes.ABOUT]:"/about",
     [AppRoutes.REGISTRATION]:"/registration",
     [AppRoutes.CONFIRMATION]:"/confirmation",
     [AppRoutes.ACTIVATION]:"/activation",   
@@ -23,17 +23,13 @@ export const routeConfig:Record<AppRoutes, RouteProps> ={
         path:routesPath.main,
         element:<MainPage />
     },
-    [AppRoutes.ABOUT]:{
-        path:routesPath.about,
-        element:<AboutPage />
-    },
     [AppRoutes.REGISTRATION]:{
-        path:routesPath.main,
-        element:<MainPage />
+        path:routesPath.registration,
+        element:<RegistrationPage />
     },
     [AppRoutes.CONFIRMATION]:{
-        path:routesPath.about,
-        element:<AboutPage />
+        path:routesPath.confirmation,
+        element:<ConfirmationPage />
     },
     [AppRoutes.ACTIVATION]:{
         path:routesPath.main,

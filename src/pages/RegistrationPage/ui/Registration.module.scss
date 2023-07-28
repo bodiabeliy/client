@@ -1,0 +1,13 @@
+.mainWrapper {
+    position: absolute;
+    height: var(--page-height);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .mainContent {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 30px;
+  }
