@@ -34,4 +34,23 @@
 .ant-select-dropdown {
     width: 120px !important;
 }
+.ant-tabs-nav {
+    width: 100%;
+}
+.ant-tabs-nav-list {
+    display: flex !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+} 
 
+
+.ant-tabs-ink-bar {
+    border-radius: 4px 4px 0px 0px !important;
+    background: #4E5AF2 !important;
+    height: 4px !important;
+}
+.ant-tabs-ink-bar-animated {
+  }
+  
+
+  
