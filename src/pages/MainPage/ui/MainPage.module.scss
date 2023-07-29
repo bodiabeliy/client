@@ -12,7 +12,8 @@
     margin-top: 70px;
 }
 .textDescription {
-    width: 100%;
+    width: var(--sideBar-width);
+
 }
 .form {
     display: flex;

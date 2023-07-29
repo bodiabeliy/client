@@ -1,0 +1,61 @@
+.Modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: var(--sidebar-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    :after {
+        position: absolute;
+        right: -400px;
+        top: -270px;
+        transform: scale(3);
+        content: "\00d7"; 
+    }
+   
+}
+
+.content {
+    font-family: var(--font-family);
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 12px;
+    transition: 0.3s transform;
+    transform: scale(0.5);
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+
+.opened {
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 5;
+
+    .content {
+        transform: scale(1);
+    }
+    
+}
+
+.isClosing {
+    .content {
+        transform: scale(0.2);
+    }
+}

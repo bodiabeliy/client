@@ -1,3 +1,5 @@
+
+//
 .pageDescriptionWrapper {
     color: white;
     text-align: left;
@@ -15,7 +17,6 @@
     font-weight: var(--font-regular);
 
     padding-top: 24px;
-    max-width: 436px;
     font-size: 18px;
     font-weight: 400;
 }
@@ -38,4 +39,9 @@
     & svg {
         margin-right: 10px;
     }    
+}
+
+//
+.userProfilePageDescriptionWrapper {
+    
 }

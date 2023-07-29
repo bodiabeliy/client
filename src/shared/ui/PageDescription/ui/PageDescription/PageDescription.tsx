@@ -27,7 +27,7 @@ export const PageDescription:FC<PageDescriptionProps> = ({pageName}) => {
                 ))}
             </div>
         </div> 
-        :pageName =="registration"?
+        :pageName =="userProfile"?
         <div className={cls.pageDescriptionWrapper}>
             <div className={cls.titleContent}>
                 <p>Регистрация пользователя</p>

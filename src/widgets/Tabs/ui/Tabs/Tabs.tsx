@@ -6,7 +6,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { RegistrationForm } from 'widgets/Forms';
 import { LoginForm } from 'widgets/Forms';
 import { Link } from 'react-router-dom';
-import { RegistrationPage } from 'pages/RegistrationPage';
+import { UserProfilePage } from 'pages/UserProfilePage';
 const onChange = (key: string) => {
   console.log(key);
 };
@@ -15,12 +15,12 @@ const items: TabsProps['items'] = [
   {
     key: '1',
     label: "Вход",
-    children: <LoginForm />,
+    children: <LoginForm formType='login' />,
   },
   {
     key: '2',
-    label: <Link to={"/registration"}>Регистрация</Link>,
-    children: <RegistrationPage />,
+    label: "Регистрация",
+    children: <LoginForm formType='registration' />,
   }
 ];
 export const LoginTabs = () => {
