@@ -1,5 +1,6 @@
 import { Button, Input, Form } from "antd";
 import { FC, useState, useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {Modal} from "shared/ui/Modal/Modal"
 import ConfirmationIcon from "shared/assets/Confirmation.svg"
@@ -8,6 +9,7 @@ import KeyIcon from "shared/assets/Key.svg"
 
 import cls from "./LoginForm.module.scss"
 import { classNames } from "shared/lib/helpers/classNames";
+import { UserSelector, decrement, increment } from "entities/User/model/slice/UserSlice";
 
 interface LoginFormProps {
     formType:string
@@ -20,6 +22,9 @@ export const LoginForm:FC<LoginFormProps> = ({formType}) => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisibleVisible] = useState(false);
     const [passwordIsEqual, setPasswordIsEqual] = useState(false)
+
+    const dispatch = useDispatch();
+    const counter = useSelector(UserSelector)
 
     useEffect(() => {
 

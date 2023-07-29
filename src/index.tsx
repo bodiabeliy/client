@@ -4,10 +4,10 @@ import {HashRouter} from "react-router-dom";
 import { store } from 'app/providers/StoreProvider/store'
 import { Provider as StoreProvider } from 'react-redux'
 render(
-    <HashRouter>
-        <StoreProvider store={store}>
+    <StoreProvider store={store}>
+         <HashRouter>
             <App />
-        </StoreProvider>
-    </HashRouter>,
+       </HashRouter>
+    </StoreProvider>,
     document.getElementById('root')
 )
