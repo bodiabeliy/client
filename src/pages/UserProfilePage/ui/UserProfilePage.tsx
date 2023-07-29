@@ -2,7 +2,7 @@ import React from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import cls from "./UserProfilePage.module.scss"
 import { PageDescription } from 'shared/ui/PageDescription';
-import { RegistrationForm } from 'widgets/Forms';
+import { UserProfileForm } from 'widgets/Forms';
 const UserProfilePage = () => {
     return (
         <div className={classNames(cls.mainWrapper)}>  
@@ -11,7 +11,7 @@ const UserProfilePage = () => {
                 <PageDescription pageName={"userProfile"} />
              </div>
             <div className={cls.form}>
-                <RegistrationForm />
+                <UserProfileForm />
             </div>
         </div>          
     </div>

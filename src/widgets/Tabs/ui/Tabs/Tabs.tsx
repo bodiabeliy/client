@@ -3,7 +3,6 @@ import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import cls from "./Tabs.module.scss"
 import { classNames } from 'shared/lib/helpers/classNames';
-import { RegistrationForm } from 'widgets/Forms';
 import { LoginForm } from 'widgets/Forms';
 import { Link } from 'react-router-dom';
 import { UserProfilePage } from 'pages/UserProfilePage';

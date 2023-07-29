@@ -3,3 +3,23 @@
     margin: 0 auto;
     margin-bottom: 70px;
 }
+.registrationFields,
+.formInput {
+    width: 100%;
+}
+.formInput {
+}
+.registrationButton {
+    width: 100%;
+}
+.submitButton {
+    background-color: var(--primary-button-color);
+    border: none !important;
+    font-family: var(--font-family);
+    font-weight: var(--font-bold);
+    color: var(--primary-button-text);
+    border-radius: var(--primary-button-radius);
+    width: 100%;
+    
+   
+}

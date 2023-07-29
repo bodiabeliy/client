@@ -1,13 +1,13 @@
 import {render} from "react-dom";
 import App from "./app/App";
-import {BrowserRouter, HashRouter} from "react-router-dom";
-import { ThemeProvider } from "app/providers/ThemeProvider";
-
+import {HashRouter} from "react-router-dom";
+import { store } from 'app/providers/StoreProvider/store'
+import { Provider as StoreProvider } from 'react-redux'
 render(
     <HashRouter>
-        <ThemeProvider>
+        <StoreProvider store={store}>
             <App />
-        </ThemeProvider>
+        </StoreProvider>
     </HashRouter>,
     document.getElementById('root')
 )

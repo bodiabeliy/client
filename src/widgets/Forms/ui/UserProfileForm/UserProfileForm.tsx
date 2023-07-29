@@ -1,9 +1,9 @@
 import React , {useState} from 'react';
 import { Button, Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import cls from "./RegistrationForm.module.scss"
+import cls from "./UserProfileForm.module.scss"
 import { classNames } from 'shared/lib/helpers/classNames';
-export const RegistrationForm = () => {
+export const UserProfileForm = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     return ( 

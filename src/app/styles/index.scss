@@ -17,6 +17,7 @@
 
 //
 .ant-tabs.ant-tabs-top.css-dev-only-do-not-override-txh9fw {
+    width: 100% !important;
     align-items: center !important;
 }
 .ant-select-selector{
@@ -49,8 +50,9 @@
     background: #4E5AF2 !important;
     height: 4px !important;
 }
-.ant-tabs-ink-bar-animated {
-  }
+.ant-tabs-content-holder {
+    width: 100% !important;
+}
   
 
   
