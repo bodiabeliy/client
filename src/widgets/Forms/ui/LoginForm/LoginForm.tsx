@@ -1,5 +1,5 @@
 import { Button, Input, Form } from "antd";
-import { FC, useState, useCallback, useEffect } from "react";
+import { FC, useState, useCallback, useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {Modal} from "shared/ui/Modal/Modal"
@@ -9,28 +9,57 @@ import KeyIcon from "shared/assets/Key.svg"
 
 import cls from "./LoginForm.module.scss"
 import { classNames } from "shared/lib/helpers/classNames";
-import { UserSelector, decrement, increment } from "entities/User/model/slice/UserSlice";
-
+import { 
+    IsLoginUserSelector,
+    UserEmailSelector, 
+    UserPasswordSelector, 
+    registerUser,
+    loginUser, 
+    setUserEmail, 
+    setUserPassword 
+} from "entities/User/model/slice/UserSlice";
+import { useNavigate } from "react-router-dom";
 interface LoginFormProps {
     formType:string
 }
 
-export const LoginForm:FC<LoginFormProps> = ({formType}) => {
+export const LoginForm:FC<LoginFormProps> = memo(({formType}) => {
     const [form] = Form.useForm();
-
+    const navigate = useNavigate();
+    
     const [isLoginModal, setIsLoginModal] = useState(false);
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisibleVisible] = useState(false);
     const [passwordIsEqual, setPasswordIsEqual] = useState(false)
 
     const dispatch = useDispatch();
-    const counter = useSelector(UserSelector)
+    const email = useSelector(UserEmailSelector)
+    const password = useSelector(UserPasswordSelector)
+    const isLoginUser = useSelector(IsLoginUserSelector)
+    
+   const RegistrateUserEmail =useCallback((email:string) => {
+    dispatch(setUserEmail(email))
+   }, [dispatch])
 
-    useEffect(() => {
+   const RegistrateUserPassword =useCallback((password:string) => {
+    dispatch(setUserPassword(password))
+   }, [dispatch])
 
-    })
+   const Submit = useCallback(() => {
+    //@ts-ignore
+    dispatch(registerUser(email, password))
+    onCloseModal()
+   }, [dispatch, email, password, isLoginUser])
+
+   const Login = useCallback(() => {
+    //@ts-ignore
+    dispatch(loginUser(email, password))
+    navigate("/userProfile")
+
+   }, [dispatch, email, password])
+   
+
     const onCloseModal = useCallback(() => {
-        
         setIsLoginModal((prev) => !prev);
     }, [isLoginModal]);
 
@@ -61,6 +90,8 @@ export const LoginForm:FC<LoginFormProps> = ({formType}) => {
                     <Input
                             className={classNames("registrationEmail", {}, [cls.formInput])}
                             placeholder="Адресс почты" 
+                            onChange={(e) => RegistrateUserEmail(e.target.value)}
+                            value={email}
                         />
                 </Form.Item>
                     
@@ -81,6 +112,8 @@ export const LoginForm:FC<LoginFormProps> = ({formType}) => {
                         placeholder="Придумайте пароль"
                         suffix={<KeyIcon />}
                         visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
+                        onChange={(e) => RegistrateUserPassword(e.target.value)}
+                        value={password}
                     />
                 </Form.Item>
                    
@@ -111,12 +144,15 @@ export const LoginForm:FC<LoginFormProps> = ({formType}) => {
                         placeholder="Повторите пароль"
                         suffix={<KeyIcon />}
                         visibilityToggle={{ visible: confirmPasswordVisible, onVisibleChange: setConfirmPasswordVisibleVisible }}
+                        value={password}
+
                     />
                 </Form.Item>
                     
                 <Button
                     className={classNames("registrationButton", {}, [cls.submitButton])}
                     disabled={!passwordIsEqual}
+                    onClick={() => Submit()}
                     >Зарегистрироватся
                 </Button>
             </div>
@@ -126,7 +162,7 @@ export const LoginForm:FC<LoginFormProps> = ({formType}) => {
         // <Button onClick={()=>onCloseModal()}>login</Button>
         <Form
             form={form}
-            name="register"
+            name="login"
             scrollToFirstError
         >
             <div className={cls.registrationFields}>
@@ -150,7 +186,7 @@ export const LoginForm:FC<LoginFormProps> = ({formType}) => {
                         />
                 </Form.Item>
                     
-                <p>Придумайте пароль</p>
+                <p>Введите пароль</p>
                 
                 <Form.Item
                     name="password"
@@ -164,7 +200,7 @@ export const LoginForm:FC<LoginFormProps> = ({formType}) => {
                 >
                     <Input.Password
                         className={classNames("registrationPassword", {}, [cls.formInput])}
-                        placeholder="Придумайте пароль"
+                        placeholder="Введите пароль"
                         suffix={<KeyIcon />}
                         visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
                     />
@@ -172,20 +208,25 @@ export const LoginForm:FC<LoginFormProps> = ({formType}) => {
  
                 <Button
                     className={classNames("registrationButton", {}, [cls.submitButton])}
-                    
+                    onClick={() => Login()}
                     >Войти
                 </Button>
             </div>
          </Form>        
         :null}
 
-        <Modal isOpen={isLoginModal} onClose={() =>onCloseModal()} className="registrationModal">
-            <ConfirmationIcon className={cls.registrationConfirm}/>
+        {
+            isLoginUser == true && (
+                <Modal isOpen={isLoginModal} onClose={() =>onCloseModal()} className="registrationModal">
+                    <ConfirmationIcon className={cls.registrationConfirm}/>
 
-            Аккаунт был успешно зарегистрирован.<br />
-             На ваш E-Mail отправлено письмо с ссылкой для подтверждения
-        </Modal>
+                    Аккаунт был успешно зарегистрирован.<br />
+                    На ваш E-Mail отправлено письмо с ссылкой для подтверждения
+            </Modal>
+            )
+        }
+        
     </> 
     );
-}
+})
  
