@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk';
-import UserReducer from "entities/User/model/slice/UserSlice"
+import UserReducer from "entities/User/services/UserSlice"
 import { useDispatch } from 'react-redux';
 
 const rootReducer = combineReducers({ 

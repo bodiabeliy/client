@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { IUser } from '../types/User'
+import { IUser } from '../model/types/User'
 import { AppDispatch } from 'app/providers/StoreProvider/store'
 import axios from 'axios'
 
@@ -36,15 +36,21 @@ export const IsLoginUserSelector = (state:any) => state.UserReducer.isLogin
 
 // Thunk actions
 export const registerUser = (email:string, password:string) => async (dispatch: AppDispatch) => {
-    
+    const ref ="[https://ulbitv.ru/teach/control/stream/view/id/648417440]"
     try {
         const response = await axios.post("https://api.prof.world/v2.0/profile/registration", {
             email,
             password,
-        })        
+            ref
+        })  
+        
+              
         dispatch(isLogin())
+
+        localStorage.setItem("userToken", response.data.user_data.token)
+
     } catch (error: any) {
-      console.log('file error');
+      console.log('file error', error);
     }
 };
 

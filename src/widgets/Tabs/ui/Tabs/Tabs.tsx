@@ -25,7 +25,7 @@ const items: TabsProps['items'] = [
 export const LoginTabs = () => {
     return (
              <Tabs 
-                defaultActiveKey="1" 
+                defaultActiveKey="2" 
                 className={classNames(cls.tabsContent)} 
                 items={items} onChange={onChange} />
     )

@@ -17,7 +17,7 @@ import {
     loginUser, 
     setUserEmail, 
     setUserPassword 
-} from "entities/User/model/slice/UserSlice";
+} from "entities/User/services/UserSlice";
 import { useNavigate } from "react-router-dom";
 interface LoginFormProps {
     formType:string
@@ -88,7 +88,7 @@ export const LoginForm:FC<LoginFormProps> = memo(({formType}) => {
                     ]}
                 >
                     <Input
-                            className={classNames("registrationEmail", {}, [cls.formInput])}
+                            className={classNames("registrationEmail", {}, [cls.formInput,])}
                             placeholder="Адресс почты" 
                             onChange={(e) => RegistrateUserEmail(e.target.value)}
                             value={email}
@@ -209,6 +209,7 @@ export const LoginForm:FC<LoginFormProps> = memo(({formType}) => {
                 <Button
                     className={classNames("registrationButton", {}, [cls.submitButton])}
                     onClick={() => Login()}
+                    
                     >Войти
                 </Button>
             </div>

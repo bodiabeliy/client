@@ -1,14 +1,10 @@
 @import "reset";
 @import "variables/global.scss";
-@import "themes/light.scss";
 
 //fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto&family=Roboto+Slab:wght@100&family=Ubuntu:wght@700&display=swap');
 .app {
     font-family: var(--font-family);
-    // font-size: var(--font-size-m);
-    // line-height: var(--font-line-m);
-    // color:var(--primary-color);
     display: flex;
     width: 100%;
 
@@ -20,6 +16,10 @@
     width: 100% !important;
     align-items: center !important;
 }
+.ant-form-item.css-dev-only-do-not-override-txh9fw {
+    margin-bottom: 0 !important;
+}
+
 .ant-select-selector{
     background-color: rgba(237, 242, 255, 0.7) !important;
     font-family: var(--font-family) !important;
@@ -53,6 +53,15 @@
 .ant-tabs-content-holder {
     width: 100% !important;
 }
-  
-
+.css-dev-only-do-not-override-txh9fw.ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+    display: inline-block;
+    margin-inline-end: 4px;
+    color: #FF776F !important;
+    font-size: 14px;
+    line-height: 1;
+    content: "*";
+}
+.css-dev-only-do-not-override-txh9fw.ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    content: "";
+}
   
