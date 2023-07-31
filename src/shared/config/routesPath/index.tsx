@@ -1,3 +1,4 @@
+import { EmailConfirmationPage } from "pages/EmailConfirmationPage"
 import { MainPage } from "pages/MainPage"
 import { UserProfilePage } from "pages/UserProfilePage"
 import { RouteProps } from "react-router-dom"
@@ -24,8 +25,8 @@ export const routeConfig:Record<AppRoutes, RouteProps> ={
         element:<UserProfilePage />
     },
     [AppRoutes.ACTIVATION]:{
-        path:routesPath.main,
-        element:<MainPage />
+        path:routesPath.activation,
+        element:<EmailConfirmationPage />
     }
 }
 

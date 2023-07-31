@@ -4,5 +4,6 @@ export interface IUser {
     isLoading:boolean
     isActivated:boolean;
     isLogin?:boolean;
-    error:string
+    error:string,
+    isAuth:Boolean
 }

@@ -6,7 +6,7 @@
 .registrationFields,
 .formInput {
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 .registrationButton {
     width: 100%;
@@ -19,6 +19,20 @@
     color: var(--primary-button-text);
     border-radius: var(--primary-button-radius);
     width: 100%;
-    
-   
+}
+
+.emailConfirm {
+    width: 100%;
+    max-width: 346px;
+    text-align: center;
+    font-family: var(--font-family);
+    & p {
+        font-weight: var(--font-bold);
+        font-size: 18px;
+    }
+    & label  {
+        font-weight: var(--font-pre-bold);
+
+        font-size: 12px;
+    }
 }

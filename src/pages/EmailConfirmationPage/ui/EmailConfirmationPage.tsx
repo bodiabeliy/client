@@ -2,21 +2,20 @@ import React from 'react';
 import {LoginTabs} from "widgets/Tabs/ui/Tabs/Tabs"
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { PageDescription } from 'shared/ui/PageDescription';
-import cls from "./MainPage.module.scss"
+import cls from "./EmailConfirmationPage.module.scss"
 import { classNames } from 'shared/lib/helpers/classNames';
+import { LoginForm } from 'widgets/Forms';
 
 
-const MainPage = () => {
-
+const EmailConfirmationPage = () => {
     return (<>
-        <LangSwitcher />
         <div className={classNames(cls.mainWrapper)}>  
             <div className={classNames(cls.mainContent)}>
                 <div className={cls.textDescription}>
-                    <PageDescription pageName={"main"} />
+                    <PageDescription pageName={"userProfile"} />
                  </div>
                 <div className={cls.form}>
-                    <LoginTabs />
+                <LoginForm formType='emailConfirm' />
                 </div>
             </div>          
         </div>
@@ -25,4 +24,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default EmailConfirmationPage;
